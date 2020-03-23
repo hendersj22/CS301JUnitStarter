@@ -38,21 +38,60 @@ public class TwoPointsTest {
 
     @Test
     public void randomValue() {
-    }
+        TwoPoints testPoints = new TwoPoints();
+        testPoints.randomValue(0);
+        testPoints.randomValue(1);
+        Random rand = new Random();
+        int x = rand.nextInt(20) - 10;
+        int y = rand.nextInt(20) - 10;
+        Point p1 = testPoints.getPoint(0);
+        Point p2 = testPoints.getPoint(1);
+        assertEquals(x, p1.x);
+        assertEquals(y, p1.y);
+        assertEquals(x, p2.x);
+        assertEquals(y, p2.y);
+        }
 
     @Test
     public void setOrigin() {
+        TwoPoints testPoints = new TwoPoints();
+        testPoints.setOrigin(0);
+        testPoints.setOrigin(1);
+        Point p1 = testPoints.getPoint(0);
+        Point p2 = testPoints.getPoint(1);
+        assertEquals(0, p1.x);
+        assertEquals(0, p1.y);
+        assertEquals(0, p2.x);
+        assertEquals(0, p2.y);
     }
 
     @Test
     public void copy() {
+        TwoPoints testPoints = new TwoPoints();
+        Point p1 = testPoints.getPoint(0);
+        Point p2 = testPoints.getPoint(1);
+        testPoints.copy(0,1);
+        assertEquals(p2.x, p1.x);
+        assertEquals(p2.y, p1.y);
+
+
     }
 
     @Test
     public void distance() {
+        TwoPoints testPoints = new TwoPoints();
+        Point p1 = testPoints.getPoint(0);
+        Point p2 = testPoints.getPoint(1);
+        testPoints.distance();
+
+
     }
 
     @Test
     public void slope() {
+        TwoPoints testPoints = new TwoPoints();
+        Point p1 = testPoints.getPoint(0);
+        Point p2 = testPoints.getPoint(1);
+        testPoints.slope();
     }
 }
