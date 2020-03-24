@@ -94,7 +94,14 @@ public class TwoPointsTest {
         Point p2 = testPoints.getPoint(1);
         int y = (p2.y - p1.y);
         int x = (p2.x - p1.x);
-        int slope = y/x;
+        int slope;
+        if(x == 0)
+        {
+            slope = 0;
+        }
+        else {
+            slope = y / x;
+        }
         assertEquals(slope,testPoints.slope(), 0.001);
     }
 }
