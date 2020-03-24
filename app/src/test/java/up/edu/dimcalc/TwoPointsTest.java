@@ -41,15 +41,12 @@ public class TwoPointsTest {
         TwoPoints testPoints = new TwoPoints();
         testPoints.randomValue(0);
         testPoints.randomValue(1);
-        Random rand = new Random();
-        int x = rand.nextInt(20) - 10;
-        int y = rand.nextInt(20) - 10;
         Point p1 = testPoints.getPoint(0);
         Point p2 = testPoints.getPoint(1);
-        assertEquals(x, p1.x);
-        assertEquals(y, p1.y);
-        assertEquals(x, p2.x);
-        assertEquals(y, p2.y);
+        assertNotEquals(p1.x, p2.x);
+        assertNotEquals(p1.y, p2.y);
+
+
         }
 
     @Test
@@ -83,7 +80,10 @@ public class TwoPointsTest {
         Point p1 = testPoints.getPoint(0);
         Point p2 = testPoints.getPoint(1);
         testPoints.distance();
-
+        double ac = Math.abs(p2.y - p1.y);
+        double cb = Math.abs(p2.x - p1.x);
+        double distance = Math.hypot(ac, cb);
+        assertEquals(distance, testPoints.distance(), 0.001);
 
     }
 
@@ -92,6 +92,9 @@ public class TwoPointsTest {
         TwoPoints testPoints = new TwoPoints();
         Point p1 = testPoints.getPoint(0);
         Point p2 = testPoints.getPoint(1);
-        testPoints.slope();
+        int y = (p2.y - p1.y);
+        int x = (p2.x - p1.x);
+        int slope = y/x;
+        assertEquals(slope,testPoints.slope(), 0.001);
     }
 }

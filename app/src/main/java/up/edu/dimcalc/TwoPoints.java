@@ -67,6 +67,10 @@ public class TwoPoints {
         int xDiff = points[0].x - points[1].x;
         int yDiff = points[0].y - points[1].y;
 
+        if(yDiff == 0){
+            result = 0;
+            return result;
+        }
         result = xDiff / yDiff;
         return result;
     }
